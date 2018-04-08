@@ -1,0 +1,560 @@
+/*顶部区域*/
+.header-box .right-menu {
+    float: right;
+}
+.small-nav .right-menu .child-menu {
+    display: inline-block;
+    line-height: 12px;
+    color: #576077;
+    padding: 0 6px 0 10px;
+    position: relative;
+    text-decoration: none;
+}
+/*主侧区域*/
+.channel-box .box-content {
+    margin: 15px 0 0;
+}
+.clear-fix:after, .clear-fix:before {
+    display: table;
+    content: "";
+}
+.channel-box {
+    padding: 17px 15px 0;
+    margin: 0 0 20px;
+    background-color: #f4f5f9;
+    position: relative;
+}
+.channel-box .box-title {
+    height: 45px;
+    line-height: 38px;
+}
+
+.box-title .title-icon {
+    float: left;
+    width: 5px;
+    height: 24px;
+    background: #31c37c;
+    margin: 8px 0 0;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, body, button, dd, dl, dt, fieldset, h1, h2, h3, h4, h5, h6, hr, input, legend, li, ol, p, pre, td, textarea, th, ul {
+    /* margin: 0; */
+    padding: 0;
+}
+blockquote, body, button, dd, dl, dt, fieldset, h1, h2, h3, h4, h5, h6, hr, input, legend, li, ol, p, pre, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+}
+.box-title h3 {
+    font-size: 2.5rem;
+    color: #3f3f4d;
+    line-height: 38px;
+    float: left;
+    margin: 0 20px 0 6px;
+}
+.box-content .games-list {
+    margin: 0 -16px 0 0;
+    position: relative;
+    zoom: 1;
+}
+/*blockquote, body, button, dd, dl, dt, fieldset, h1, h2, h3, h4, h5, h6, hr, input, legend, li, ol, p, pre, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+}*/
+body, button, input, select, textarea {
+    font: 12px/1 Microsoft YaHei,"\5b8b\4f53",Tahoma,Helvetica,Arial,sans-serif;
+}
+.games-list .game-type.type4 {
+    background-position: -108px 0;
+}
+.games-list .game-type {
+    display: block;
+    width: 36px;
+    height: 28px;
+    line-height: 28px;
+    text-align: center;
+    font-size: 12px;
+    font-style: normal;
+    color: #fff;
+    background: url(//img.juxiangyou.com/common/games/2.2/game_type_icon.png) no-repeat 0 0;
+    position: absolute;
+    top: -2px;
+    left: 2px;
+    z-index: 10;
+}
+.games-list li {
+    float: left;
+    width: 22%;
+    /* height: 45%;*/
+    height: 300px;
+    margin: 0 16px 10px 0;
+    position: relative;
+}
+.games-list li .top-img, .games-list li .top-img img {
+    width: 100%;
+    height: 58%;
+}
+.games-list li .top-img {
+    position: relative;
+    overflow: hidden;
+}
+.games-list li .bottom-content {
+    margin: 6px 0;
+}
+.games-list li .bottom-content .sw-jl {
+    color: #ff4800;
+}
+.games-list li .bottom-content p {
+    color: #576077;
+    line-height: 20px;
+}
+.channel-box.game-height {
+    width: 105%;
+    height: 102%;
+    left: -1%;
+    overflow: auto;
+}
+.channel-box.game-height_1 {
+    width: 100%;
+    height: 98%;
+    left: 0%;
+    overflow:hidden
+}
+#left-right-layout .block-main {
+    position: relative;
+    z-index: 10;
+}
+#left-right-layout .block-main {
+    width: 79%;
+    float: left;
+    min-height: 800px;
+    position: relative;
+}
+/*右侧区域*/
+.block-right {
+    width: 19%;
+    float: right;
+    min-height: 800px;
+}
+.news-box {
+    height: 267px;
+    margin: 0 0 20px;
+}
+.news-box {
+    right: 5%;
+    border: 1px solid #e8e8e8;
+}
+.news-box {
+    background-color: #fff;
+    background: url(//img.juxiangyou.com/common/p2p/title-bg.jpg) no-repeat -1px -1px;
+    position: relative;
+}
+.finance-income-box h3 .icon, .licai-niurenlist h3 .icon, .news-box h3 .icon {
+    float: left;
+    width: 3px;
+    height: 17px;
+    background: #31c37c;
+    margin: 13px 8px 0 0;
+}
+.news-box h3 {
+    line-height: 42px;
+    padding-left: 16px;
+    color: #333;
+    font-size: 2rem;
+    font-weight: 400;
+}
+/*区域左侧*/
+#left-right-layout {
+    /* width: 1180px;
+     margin: 0 auto;
+     overflow: hidden;*/
+    width: 104%;
+    left: 10px;
+
+}
+/*区域顶部*/
+#left-right-layout .block-top {
+    width: 87%;
+    margin: auto;
+}
+.index-buzhou {
+    width: 98%;
+    height: 60px;
+    background: url(/resource/img/buzhou_bg.png);
+    margin: 20px 0;
+    position: relative;
+    background-size:100% 100%;
+    top:55px;
+}
+.index-buzhou .now-num {
+    width: 23%;
+    /* font-size: 14px;*/
+    color: #ff4800;
+    position: absolute;
+    right: 1px;
+    bottom: 1px;
+    /*line-height: 30px;*/
+    text-align: center;
+}
+p {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+/*顶部大图*/
+.index-banner-box {
+    z-index: 99;
+}
+.index-banner-box, .index-slide-box {
+    width: 100%;
+    height: 330px;
+    position: relative;
+}
+div {
+    display: block;
+}
+.index-slide-box {
+    overflow: hidden;
+}
+.index-banner-box, .index-slide-box {
+    width: 100%;
+    height: 330px;
+    position: relative;
+}
+.index-slide-box .hd {
+    width: 900px;
+    position: absolute;
+    left: 50%;
+    margin: 0 0 0 -590px;
+    bottom: 10px;
+    z-index: 100;
+}
+.index-slide-box .hd-ul {
+    display: block;
+    text-align: center;
+    font-size: 0;
+}
+.clear-fix {
+}
+
+/*blockquote, body, button, dd, dl, dt, fieldset, h1, h2, h3, h4, h5, h6, hr, input, legend, li, ol, p, pre, td, textarea, th, ul {
+    margin: 0;
+    padding: 0;
+}*/
+ul, menu, dir {
+    display: block;
+    /*list-style-type: disc;*/
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+    /* -webkit-padding-start: 40px;*/
+}
+.index-slide-box .slide-hd-list {
+    display: inline-block;
+    filter: progid:DXImageTransform.Microsoft.gradient(enabled="true", startColorstr="#99FFFFFF", endColorstr="#99FFFFFF");
+    background-color: rgba(255,255,255,.6);
+    overflow: hidden;
+}
+li {
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.index-slide-box .slide-bd-list {
+    height: 330px;
+}
+element.style {
+    background: url(//img.juxiangyou.com/upload/www/area/583.jpg?1515478664) repeat top center;
+}
+.index-slide-box .slide-bd-list .slide-bd-a {
+    display: block;
+    height: 330px;
+}
+/* a {
+     text-decoration: none;
+     outline: 0;
+ }*/
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: auto;
+    text-decoration: underline;
+}
+/*小导航*/
+
+element.style {
+}
+.header-box {
+    position: relative;
+    z-index: 100;
+}
+.header-box .small-nav .left-login-info {
+    float: left;
+    color: #576077;
+}
+.header-box .small-nav {
+    height: 38px;
+    line-height: 38px;
+    background-color: #fafafa;
+    border-bottom: 1px solid #f2f2f2;
+    position: relative;
+    z-index: 10;
+}
+
+/* a {
+     text-decoration: none;
+     outline: 0;
+ }*/
+.clr-ff4800, .header-box .small-nav a.clr-ff4800 {
+    color: #ff4800;
+}
+/*轮播图*/
+*{  margin:0;
+    padding:0;
+    list-style:none;
+}
+.wrap{
+    width:100%;
+    height:100%;
+    margin:60px auto;
+    overflow: hidden;
+    position: relative;
+    margin:1px auto;}
+.wrap ul{
+    position: absolute;
+    left: 0px;
+    top: -24px;
+}
+.wrap ul li{height:170px;}
+.wrap ol{position:absolute;
+    left:1200px;
+    bottom:15px;
+}
+.wrap ol li{
+    /*height:20px; width: 20px;*/
+    /* background:#ccc;*/
+    /*border:solid 1px #666;*/
+    margin-left:5px;
+    color:#000;
+    float:left;
+    line-height:center;
+    text-align:center;
+    cursor:pointer;}
+.wrap ol .on{background:#E97305;
+    color:#fff;}
+
+/*右悬浮区域*/
+.right-fixed {
+    right: 10px;
+    width: 9%;
+    height: 288px;
+    border: 1px solid #e5e5e5;
+    background: #f7f8fb;
+}
+.left-fixed, .right-fixed {
+    position: fixed;
+    bottom: 200px;
+    z-index: 5000;
+}
+.left-fixed .close-a, .right-fixed .close-a {
+    position: absolute;
+    top: -13px;
+    right: 0;
+    width: 9px;
+    height: 9px;
+    background: url(//img.juxiangyou.com/common/home/close.png) no-repeat 0 0;
+}
+a {
+    text-decoration: none;
+    outline: 0;
+}
+a:-webkit-any-link {
+    color: -webkit-link;
+    cursor: pointer;
+    text-decoration: underline;
+}
+.right-fixed .group-box {
+    margin-top: 12px;
+}
+.right-fixed .kf-qq {
+    display: block;
+    width: 98px;
+    height: 22px;
+    margin: 0 auto 10px;
+    position: relative;
+}
+.right-fixed .phone, .right-fixed .return-top {
+    text-align: center;
+    font-size: 12px;
+    color: #3f3f4d;
+    line-height: 13px;
+}
+p {
+    display: block;
+    -webkit-margin-before: 1em;
+    -webkit-margin-after: 1em;
+    -webkit-margin-start: 0px;
+    -webkit-margin-end: 0px;
+}
+.right-fixed .phone .icon {
+    display: inline-block;
+    width: 9px;
+    height: 13px;
+    background: url(//img.juxiangyou.com/common/home/phone_icon.png) no-repeat 0 0;
+    vertical-align: middle;
+    margin: 0 2px 0 0;
+}
+.right-fixed .return-top {
+    display: block;
+    width: 112px;
+    height: 30px;
+    line-height: 30px;
+    color: #999;
+    background: #eeeff3;
+    margin: 8px 0 0;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+.right-fixed .return-top .icon {
+    display: inline-block;
+    width: 12px;
+    height: 9px;
+    background: url(//img.juxiangyou.com/common/home/go_top.png) no-repeat 0 0;
+    margin: 0 5px 0 0;
+}
+.right-fixed .kf-qq span {
+    position: absolute;
+    top: 5px;
+    left: 29px;
+    font-size: 12px;
+    color: #fff;
+}
+/*左悬浮区域*/
+.left-fixed {
+    left: 10px;
+    width: 9%;
+    height: 288px;
+    border: 1px solid #e5e5e5;
+    background: #f7f8fb;
+}
+/*底部区域*/
+.footer-box {
+    width:100%;
+    height: 163px;
+    color: #999;
+    background-color: #f4f5f9;
+    text-align: center;
+    padding-top: 30px;
+    border-top: 1px solid #e5e5e5;
+}
+.footer-box .p-link {
+    margin-bottom: 18px;
+}
+.footer-box .p-text {
+    line-height: 24px;
+}
+.footer-box .p-img {
+    margin-top: 16px;
+}
+/*区域底部*/
+#left-right-layout .block-bottom {
+    margin-bottom: 40px;
+}
+#left-right-layout .block-bottom {
+    width: 100%;
+    left: 47%;
+    clear: both;
+}
+.channel-box {
+    padding: 17px 15px 0;
+    margin: 0 0 20px;
+    /*left: 7.5%;*/
+    background-color: #f4f5f9;
+    position: relative;
+}
+.channel-box .box-title {
+    height: 38px;
+    line-height: 38px;
+}
+.box-title .title-icon {
+    float: left;
+    width: 0.5%;
+    height: 24px;
+    background: #31c37c;
+    margin: 8px 0 0;
+}
+i, cite, em, var, address, dfn {
+    font-style: italic;
+}
+.channel-box .box-content {
+    margin: 1% 0 0;
+}
+.box-content .link-list {
+    padding: 0 0 5px;
+    overflow: hidden;
+}
+.box-content link-list clear-fix li img{
+    width:125px;
+    height:60px;
+}
+.box-content .link-list li {
+    width: 125px;
+    height: 60px;
+    margin: 0 20px 20px 0;
+    float: left;
+}
+<!--大导航 -->
+.header-box .big-nav {
+    height: 76px;
+    line-height: 80px;
+    background-color: #fff;
+    border-bottom: 4px solid #e8e8e8;
+}
+.width-1180 {
+    width: 93%;
+    margin: 0 auto;
+    position: relative;
+}
+.header-box .big-nav .logo {
+    float: left;
+    width: 120px;
+    height: 40px;
+    margin-top: 10px;
+}
+a {
+    text-decoration: none;
+    outline: 0;
+}
+.header-box .big-nav .right-menu {
+    position: relative;
+    padding-top: 17px;
+    height: 73px;
+}
+.header-box .right-menu {
+    float: right;
+}
+.big-nav .right-menu .child-menu.on {
+    color: #fff;
+    background-color: #31c37c;
+}
+.big-nav .right-menu .child-menu {
+    display: inline-block;
+    height: 38px;
+    line-height: 38px;
+    font-size: 18px;
+    color: #3f3f4d;
+    padding: 0 18px;
+    margin: 0 3px;
+    text-decoration: none;
+    border-radius: 19px;
+    position: relative;
+    z-index: 2;
+}
+fieldset, img {
+    border: 0;
+    vertical-align: top;
+}

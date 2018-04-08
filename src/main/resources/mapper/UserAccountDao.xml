@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.force4us.dao.UserAccountDao">
+
+    <insert id="insertUserAccount">
+        INSERT  INTO user_account(id,user_id,date_create,last_modified,record_status,gold,silver_bean,remarks)
+        VALUES (#{id},#{userId},#{dateCreate},#{lastModified},#{recordStatus},#{gold},#{silverBean},#{remarks})
+    </insert>
+    <update id="addAlipayAccount">
+        update user_account
+        <set>
+            real_name = #{realName},alipay_account = #{alipayAccount},alipay_password = #{alipayPassword}
+        </set>
+        where user_id = #{userId}
+    </update>
+
+    <select id="findByUserId" resultType="UserAccountEntity" parameterType="long">
+        SELECT *
+        FROM user_account
+        WHERE user_id = #{userId}
+    </select>
+
+    <update id="updateUserAccount">
+        UPDATE user_account
+        <set>
+            silver_bean = #{SilverBean}
+        </set>
+        WHERE user_id = #{userId}
+    </update>
+</mapper>

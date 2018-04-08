@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.force4us.dao.PublishGoodsDao">
+
+    <insert id="insertGoods">
+        INSERT INTO seckill(seckill_id,name,merchant_describe,price,state,number,img_url,
+        big_one_img_url,big_two_img_url,big_three_img_url,start_time,end_time,create_time,admin_id,original_price,address)
+        VALUES (#{flashSaleId},#{productName},#{merchantDescribe},#{currentPrice},#{state},#{amount},#{bannerUrl},
+        #{bannerUrl_1},#{bannerUrl_2},#{bannerUrl_3},#{validBeginDate},#{validEndDate},#{createDate},#{adminId},#{originalPrice},#{goodsAddress})
+
+    </insert>
+
+    <select id="findByAdminId" resultType="SeckillEntity">
+        SELECT * from seckill
+        WHERE admin_id = #{adminId} order by create_time DESC
+        limit 10
+    </select>
+
+    <update id="updateGoodsState">
+        UPDATE seckill
+        <set>
+            state = #{state}
+        </set>
+        WHERE state = 0
+    </update>
+</mapper>
