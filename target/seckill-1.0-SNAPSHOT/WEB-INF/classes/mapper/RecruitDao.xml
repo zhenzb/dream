@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.force4us.dao.RecruitDao">
+
+    <insert id="insertRecruit">
+        INSERT  INTO recruit(id,company_name,position_type,recruit_number,education,duration,last_modified,job_address,
+        welfare,contacts_name,contacts_phone,remarks,logo_url,user_id,record_status)
+        VALUES (#{id},#{companyName},#{positionType},#{recruitNumber},#{education},#{duration},#{jobTime},#{jobAddress},
+        #{welfare},#{contactsName},#{contactsPhone},#{remarks},#{logoUrl},#{userId},#{recordStatus})
+    </insert>
+
+    <select id="findRecruitByRecordStatus" resultType="RecruitEntity" parameterType="int">
+        SELECT *
+        FROM recruit
+        WHERE record_status = #{recordStatus}
+        order by date_created desc;
+    </select>
+
+    <select id="findbRecruityByIdAndRecordStatus" resultType="RecruitEntity">
+        SELECT *
+        FROM recruit
+        WHERE record_status = #{recordStatus} and id = #{id}
+    </select>
+
+    <select id="findRecruitByUserId" resultType="RecruitEntity">
+        SELECT *
+        FROM recruit
+        WHERE user_id = #{userId}
+        order BY last_modified desc
+    </select>
+
+    <select id="findRecruitByName" resultType="RecruitEntity">
+         select *
+        from recruit
+        where record_status = #{recordStatus} AND company_name LIKE CONCAT(CONCAT('%', #{companyName}), '%')
+        OR position_type LIKE CONCAT(CONCAT('%', #{positionType}), '%')
+        order by last_modified desc
+
+    </select>
+
+    <update id="updateRecruitRecordStatus">
+        update recruit
+        <set>
+            record_status = #{recordStatus}
+        </set>
+        where record_status = 0
+    </update>
+</mapper>

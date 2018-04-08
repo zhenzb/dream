@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/mvc
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--配置spring mvc-->
+    <!--1,开启springmvc注解模式
+    a.自动注册DefaultAnnotationHandlerMapping,AnnotationMethodHandlerAdapter
+    b.默认提供一系列的功能:数据绑定，数字和日期的format@NumberFormat,@DateTimeFormat
+    c:xml,json的默认读写支持-->
+    <mvc:annotation-driven/>
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:jdbc.properties" />
+    </bean>
+    <!--2.静态资源默认servlet配置-->
+    <!--
+        1).加入对静态资源处理：js,gif,png
+        2).允许使用 "/" 做整体映射
+    -->
+
+    <mvc:default-servlet-handler/>
+   <!-- <mvc:resources location="/resource/script/" mapping="/img/**"/>-->
+   <!--<mvc:view-controller path="/" view-name="list"/>-->
+    <!--3：配置JSP 显示ViewResolver-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
+        <property name="prefix" value="/WEB-INF/jsp/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+    <!--4配置html显示ViewResolver-->
+    <!--<bean id="htmlViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="viewClass" value="com.web.common.HtmlResourceView"/>
+        <property name="order" value="0"/>
+        <property name="prefix" value="/web_html/"/>
+        <property name="suffix" value=".html"/>
+        <property name="contentType" value="text/html;charset=UTF-8"/>
+    </bean>-->
+    <!--5:扫描web相关的controller-->
+    <context:component-scan base-package="com.force4us.web"/>
+
+
+    <mvc:interceptors>
+        <!--  使用bean定义一个Interceptor，直接定义在mvc:interceptors根下面的Interceptor将拦截所有的请求   -->
+        <!-- <bean class="com.bybo.aca.web.interceptor.Login"/> -->
+        <mvc:interceptor>
+            <!-- 进行拦截：/**表示拦截所有controller -->
+            <mvc:mapping path="/**" />
+            <bean class="com.force4us.interceptor.MyInterceptor">
+                <!-- 不进行拦截 -->
+                <property name="excludeUrls">
+                    <list>
+                        <value>/</value>
+                        <value>/login</value>
+                        <value>/user/login</value>
+                        <value>/register</value>
+                        <value>/user/addUser</value>
+                        <value>/seckill/detail</value>
+                        <value>/seckill</value>
+                        <value>/doGet</value>
+                        <value>/error</value>
+                        <value>/time/now</value>
+                        <value>/systemMessage</value>
+                        <value>/searchList</value>
+                        <value>/recruit</value>
+                        <value>/z</value>
+                        <value>/recruitDetails</value>
+                    </list>
+                </property>
+            </bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="5400000"/>
+        <property name="defaultEncoding" value="UTF-8"/>
+        <property name="resolveLazily" value="true"/>
+    </bean>
+</beans>

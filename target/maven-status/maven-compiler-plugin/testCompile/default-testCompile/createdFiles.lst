@@ -1,0 +1,6 @@
+com\force4us\dao\SeckillEntityDaoTest.class
+com\javaTest.class
+com\force4us\dao\cache\RedisDaoTest.class
+com\force4us\service\SeckillEntityServiceTest.class
+com\force4us\HttpTest.class
+com\force4us\dao\SuccessKilledDaoTest.class

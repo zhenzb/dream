@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.force4us.dao.MessageDao">
+
+    <select id="findMessageAll" resultType="MessageEntity">
+        select * from message
+        ORDER BY date_created desc
+    </select>
+
+    <select id="findMessageById" resultType="MessageEntity">
+        select * from message
+        where id=#{id}
+    </select>
+</mapper>

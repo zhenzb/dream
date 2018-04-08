@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.force4us.dao.UserDao">
+
+    <insert id="insertUser">
+        INSERT  INTO user(id,user_name,pass_word,mobile_no,head_url,date_created,last_modified,record_status)
+        VALUES (#{id},#{userName},#{password},#{mobileNo},#{headUrl},#{createDate},#{lastModified},#{recordState})
+    </insert>
+
+    <insert id="insertUserAddress">
+        INSERT INTO user_address(create_date,last_modified,state,real_name,mobile_no,detailed_address,user_id)
+        VALUES (#{createDate},#{lastModified},#{state},#{realName},#{mobileNo},#{detailedAddress},#{userId})
+    </insert>
+    <select id="findUserByUserNameAndPassword" resultType="UserEntity" parameterType="String">
+        SELECT *
+        FROM user
+        WHERE user_name = #{userName} AND pass_word = #{password}
+    </select>
+    <select id="findUserByUserName" resultType="UserEntity">
+        select *
+        from USER
+        where user_name= #{userName}
+    </select>
+    <update id="updateUserHeadImage">
+        UPDATE user
+        <set>
+            head_url = #{headUrl}
+        </set>
+        WHERE id = #{userId}
+    </update>
+</mapper>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.force4us.dao.UserFlowMeterDao">
+
+    <insert id="saveUserFlowMeter">
+        INSERT INTO user_flow_meter(id,remarks,version,date_created,last_modified,user_id,original_gold,change_gold,current_gold,reason,record_status,
+        change_silver_bean,current_silver_bean,original_silver_bean,operation_type,alipay_account)
+        VALUES (#{id},#{remarks},#{version},#{dateCreated},#{lastModified},#{userId},#{orginalGold},#{changeGold},#{currentGold},#{reason},#{recordStatus},#{changeSilverBean},
+        #{currentSilverBean},#{originalSilverBean},#{type},#{alipayAccount})
+
+    </insert>
+    <select id="findByUserIdAndType" resultType="UserFlowMeterEntity">
+      SELECT * FROM user_flow_meter
+      WHERE user_id=#{userId}
+      AND operation_type=#{type}
+      ORDER BY date_created DESC
+    </select>
+</mapper>
