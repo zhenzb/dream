@@ -6,7 +6,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f59d55c-1af1-404a-a8db-c1879356ce29" name="Default" comment="" />
+    <list default="true" id="7f59d55c-1af1-404a-a8db-c1879356ce29" name="Default" comment="init commit">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +23,8 @@
       <file leaf-file-name="indexController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/force4us/web/indexController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="227" column="56" lean-forward="true" selection-start-line="227" selection-start-column="56" selection-end-line="227" selection-end-column="56" />
+            <state relative-caret-position="171">
+              <caret line="235" column="91" lean-forward="true" selection-start-line="235" selection-start-column="91" selection-end-line="235" selection-end-column="91" />
             </state>
           </provider>
         </entry>
@@ -94,10 +96,11 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="763" />
-    <option name="width" value="1346" />
-    <option name="height" value="728" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -106,6 +109,7 @@
     </navigator>
     <panes>
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
@@ -114,57 +118,10 @@
               <item name="seckill-master" type="b2602c69:ProjectViewProjectNode" />
               <item name="seckill-master" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="seckill-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="seckill-master" type="462c0819:PsiDirectoryNode" />
-              <item name=".idea" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="seckill-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="seckill-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="seckill-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="seckill-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="seckill-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="seckill-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="seckill-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="seckill-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="force4us" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="seckill-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="seckill-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="seckill-master" type="b2602c69:ProjectViewProjectNode" />
-              <item name="seckill-master" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="resource" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -333,7 +290,8 @@
       <workItem from="1522633867529" duration="19845000" />
       <workItem from="1522676519393" duration="4643000" />
       <workItem from="1522719636347" duration="8333000" />
-      <workItem from="1523194591804" duration="1914000" />
+      <workItem from="1523194591804" duration="2927000" />
+      <workItem from="1523251645649" duration="1104000" />
     </task>
     <task id="LOCAL-00001" summary="init commit">
       <created>1523195581892</created>
@@ -346,10 +304,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38837000" />
+    <option name="totallyTimeSpent" value="40954000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="763" y="0" width="1346" height="728" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
@@ -371,8 +329,8 @@
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.40863788" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.08940397" />
       <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.33959043" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.2682737" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.19269103" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2647504" />
       <window_info id="Web" order="2" side_tool="true" />
       <window_info anchor="right" id="Theme Preview" order="3" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -403,6 +361,13 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/java/com/force4us/web/indexController.java">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4313">
+          <caret line="227" column="56" lean-forward="true" selection-start-line="227" selection-start-column="56" selection-end-line="227" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/force4us/web/indexController.java">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4636">
           <caret line="244" column="47" selection-start-line="244" selection-start-column="47" selection-end-line="244" selection-end-column="47" />
         </state>
@@ -419,9 +384,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6821">
           <caret line="359" column="68" lean-forward="true" selection-start-line="359" selection-start-column="68" selection-end-line="359" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -450,9 +412,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="12122">
           <caret line="638" column="43" selection-start-line="638" selection-start-column="43" selection-end-line="638" selection-end-column="43" />
-          <folding>
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -474,9 +433,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="6802">
           <caret line="358" column="9" lean-forward="true" selection-start-line="358" selection-start-column="9" selection-end-line="358" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -617,9 +573,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="3532">
           <caret line="363" column="97" selection-start-line="363" selection-start-column="97" selection-end-line="363" selection-end-column="97" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -662,9 +615,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="266">
           <caret line="14" column="23" selection-start-line="14" selection-start-column="23" selection-end-line="14" selection-end-column="23" />
-          <folding>
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -672,9 +622,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2736">
           <caret line="638" column="43" selection-start-line="638" selection-start-column="43" selection-end-line="638" selection-end-column="43" />
-          <folding>
-            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -708,8 +655,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/force4us/web/indexController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="227" column="56" lean-forward="true" selection-start-line="227" selection-start-column="56" selection-end-line="227" selection-end-column="56" />
+        <state relative-caret-position="171">
+          <caret line="235" column="91" lean-forward="true" selection-start-line="235" selection-start-column="91" selection-end-line="235" selection-end-column="91" />
         </state>
       </provider>
     </entry>
