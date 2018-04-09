@@ -637,34 +637,34 @@
 </div>
 </div>
 <!-- 底部区域 -->
-<div class="footer-box">
-    <div class="width-1180">
-        <p class="p-link">
-            <a href="#" target="_blank">关于我们</a>
-            <a href="/customer" target="_self">联系我们</a>
-            <a href="" target="_self">访问总量 ${sessionScope.pvNumber}次</a>
-            <%--<a href="#" target="_blank">家长监护</a>--%>
-        </p>
-        <p class="p-text">
-            备案/许可证号：浙ICP备13015689号-4  ICP证：浙B2-20140100  浙网文[2017]2444-086号  Copyright  2013-2017   秒购网
-        </p>
-        <p class="p-text">联系电话：400-8899-055 &nbsp;&nbsp;杭州秒购科技有限公司 &nbsp;&nbsp;<%--<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602000231" target="_blank">--%><img src="//img.juxiangyou.com/v1/ghs.png">浙公安网备33010602000231号<%--</a>--%></p>
-        <p class="p-img">
-           <%-- <a href="http://www.pingpinganan.gov.cn/web/index.aspx" target=_blank>
-                <img src="http://img.juxiangyou.com/v1/police.gif" width="127" height="47" alt="">
-            </a>--%>
-           <%-- <a href="https://search.szfw.org/cert/l/CX20150314007057007172" target=_blank>--%>
+    <div class="footer-box">
+        <div class="width-1180">
+            <p class="p-link">
+                <a href="#" target="_blank">关于我们</a>
+                <a href="/customer" target="_self">联系我们</a>
+                <a href="" target="_self">访问总量 ${sessionScope.pvNumber}次</a>
+                <%--<a href="#" target="_blank">家长监护</a>--%>
+            </p>
+            <p class="p-text">
+                备案/许可证号：京ICP备13015689号-4  ICP证：京B2-20140100  京网文[2017]2444-086号  Copyright  2013-2017   亿客网
+            </p>
+            <p class="p-text">联系电话：400-8899-088 &nbsp;&nbsp;北京亿客科技有限公司 &nbsp;&nbsp;<%--<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602000231" target="_blank">--%><img src="//img.juxiangyou.com/v1/ghs.png">浙公安网备33010602000231号<%--</a>--%></p>
+            <p class="p-img">
+                <%-- <a href="http://www.pingpinganan.gov.cn/web/index.aspx" target=_blank>
+                     <img src="http://img.juxiangyou.com/v1/police.gif" width="127" height="47" alt="">
+                 </a>--%>
+                <%-- <a href="https://search.szfw.org/cert/l/CX20150314007057007172" target=_blank>--%>
                 <img src="/resource/img/cert.jpg" width="8%" height="47" alt="">
-            <%--</a>--%>
-            <%--<a href="https://ss.knet.cn/verifyseal.dll?sn=e14052233010049227etri000000&ct=df&a=1&pa=0.21805879403837025" target=_blank>--%>
+                <%--</a>--%>
+                <%--<a href="https://ss.knet.cn/verifyseal.dll?sn=e14052233010049227etri000000&ct=df&a=1&pa=0.21805879403837025" target=_blank>--%>
                 <img src="/resource/img/cnnic.png" width="8%" height="47" alt="">
-            <%--</a>--%>
-            <%--<a href="http://si.trustutn.org/info?sn=529170224027158122933&certType=1" target=_blank>--%>
+                <%--</a>--%>
+                <%--<a href="http://si.trustutn.org/info?sn=529170224027158122933&certType=1" target=_blank>--%>
                 <img src="/resource/img/bottom_large_img.png" width="8%" height="47" alt="">
-            <%--</a>--%>
-        </p>
+                <%--</a>--%>
+            </p>
+        </div>
     </div>
-</div>
 </body>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <%--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>--%>
