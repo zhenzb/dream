@@ -89,48 +89,7 @@ public class UserController {
                     userEntity.setRecordStatus(GlobalConstant.INIT_SATTE);
                     int number = userService.addUser(userEntity);
                     if (number ==1) {
-                        responseMessage.setState(GlobalConstant.SUCCESS);
-                        responseMessage.setMessage(GlobalConstant.REGISTER);
-                        UserAccountEntity userAccountEntity = new UserAccountEntity();
-                        userAccountEntity.setId(System.currentTimeMillis());
-                        userAccountEntity.setUserId(Long.valueOf(substring));
-                        userAccountEntity.setDateCreated(new Date());
-                        userAccountEntity.setLastModified(new Date());
-                        userAccountEntity.setRecordStatus(GlobalConstant.INIT_SATTE);
-                        userAccountEntity.setGold(GlobalConstant.INT_GOLD);
-                        userAccountEntity.setSilverBean(GlobalConstant.INT_SILVERBEAN);
-                        userAccountEntity.setRemarks(GlobalConstant.USER_LEVEL);
-                        userAccountService.inserUseraccount(userAccountEntity);
-                        UserFlowMeterEntity userFlowMeterEntity = new UserFlowMeterEntity();
-                        userFlowMeterEntity.setId(System.currentTimeMillis());
-                        userFlowMeterEntity.setVersion(0);
-                        userFlowMeterEntity.setDateCreated(new Date());
-                        userFlowMeterEntity.setLastModified(new Date());
-                        userFlowMeterEntity.setUserId(Long.valueOf(substring));
-                        userFlowMeterEntity.setReason(GlobalConstant.REGISTER);
-                        userFlowMeterEntity.setRecordStatus(GlobalConstant.INIT_SATTE);
-                        userFlowMeterEntity.setOriginalSilverBean(0);
-                        userFlowMeterEntity.setChangeSilverBean(GlobalConstant.INT_SILVERBEAN);
-                        userFlowMeterEntity.setCurrentSilverBean(GlobalConstant.INT_SILVERBEAN);
-                        userFlowMeterEntity.setChangeGold(0);
-                        userFlowMeterEntity.setCurrentGold(0);
-                        userFlowMeterEntity.setOriginalGold(0);
-                        userFlowMeterEntity.setType(GlobalConstant.SILVERBEAN);
-                        userFlowMeterService.addUserFlowMeter(userFlowMeterEntity);
-                        userFlowMeterEntity.setId(System.currentTimeMillis()+1);
-                        userFlowMeterEntity.setVersion(0);
-                        userFlowMeterEntity.setDateCreated(new Date());
-                        userFlowMeterEntity.setLastModified(new Date());
-                        userFlowMeterEntity.setUserId(Long.valueOf(substring));
-                        userFlowMeterEntity.setRecordStatus(GlobalConstant.INIT_SATTE);
-                        userFlowMeterEntity.setOriginalGold(0);
-                        userFlowMeterEntity.setChangeGold(GlobalConstant.INT_GOLD);
-                        userFlowMeterEntity.setCurrentGold(GlobalConstant.INT_GOLD);
-                        userFlowMeterEntity.setChangeSilverBean(0);
-                        userFlowMeterEntity.setCurrentSilverBean(0);
-                        userFlowMeterEntity.setOriginalSilverBean(0);
-                        userFlowMeterEntity.setType(GlobalConstant.GOLD);
-                        userFlowMeterService.addUserFlowMeter(userFlowMeterEntity);
+                        addUserAccount(substring);
                     }
                     map.remove(userEntity.getUserName());
                     responseMessage.setState(GlobalConstant.SUCCESS);
@@ -195,7 +154,6 @@ public class UserController {
         }
         LOGGER.info("[用户登录] response_message:"+model.toString());
         return "list";
-
     }
 
     @RequestMapping(value = "/addAddress",method = POST)
@@ -274,30 +232,27 @@ public class UserController {
                 ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
                 UploadFileUtil uploadFileUtil = new UploadFileUtil();
                 String zz = request.getSession().getServletContext().getRealPath("/");
-               /* String classPath = this.getClass().getResource("/").getPath();
-                String zz1 = request.getContextPath();
-                String zz2 = System.getProperty("user.dir") ;*/
                 zz = zz+"resource\\upload\\image\\";
                 uploadFileUtil.uploadFile(bais, zz, fileNameNew);
                 //stream = IMAGEURL + IMAGELOCALHOST.substring(2, IMAGELOCALHOST.lastIndexOf("\\")).replace("\\", "/") + "/";
-           stream = IMAGEURL+"resource/upload/image/";
+               stream = IMAGEURL+"resource/upload/image/";
+                }
+                UserEntity user = (UserEntity)session.getAttribute("user");
+                int i = userService.updateUserHeadImage(user.getId(), stream + fileNameNew);
+                if(1 == i){
+                    session.removeAttribute("user");
+                    UserEntity userEntityByUserName = userService.findUserEntityByUserName(user.getUserName());
+                    session.setAttribute("user",userEntityByUserName);
+                    responseMessage.setState(GlobalConstant.SUCCESS);
+                    responseMessage.setMessage("设置成功");
+                }else{
+                    responseMessage.setState(GlobalConstant.ERROR);
+                    responseMessage.setMessage("设置失败");
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            UserEntity user = (UserEntity)session.getAttribute("user");
-            int i = userService.updateUserHeadImage(user.getId(), stream + fileNameNew);
-            if(1 == i){
-                session.removeAttribute("user");
-                UserEntity userEntityByUserName = userService.findUserEntityByUserName(user.getUserName());
-                session.setAttribute("user",userEntityByUserName);
-                responseMessage.setState(GlobalConstant.SUCCESS);
-                responseMessage.setMessage("设置成功");
-            }else{
-                responseMessage.setState(GlobalConstant.ERROR);
-                responseMessage.setMessage("设置失败");
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return responseMessage;
+            return responseMessage;
     }
 
     @RequestMapping(value = "/addAlipayAccount")
@@ -372,4 +327,49 @@ public class UserController {
         LOGGER.info(responseMessage.toString());
         return responseMessage;
     }
+
+    public void addUserAccount(String userId){
+
+        UserAccountEntity userAccountEntity = new UserAccountEntity();
+        userAccountEntity.setId(System.currentTimeMillis());
+        userAccountEntity.setUserId(Long.valueOf(userId));
+        userAccountEntity.setDateCreated(new Date());
+        userAccountEntity.setLastModified(new Date());
+        userAccountEntity.setRecordStatus(GlobalConstant.INIT_SATTE);
+        userAccountEntity.setGold(GlobalConstant.INT_GOLD);
+        userAccountEntity.setSilverBean(GlobalConstant.INT_SILVERBEAN);
+        userAccountEntity.setRemarks(GlobalConstant.USER_LEVEL);
+        userAccountService.inserUseraccount(userAccountEntity);
+        UserFlowMeterEntity userFlowMeterEntity = new UserFlowMeterEntity();
+        userFlowMeterEntity.setId(System.currentTimeMillis());
+        userFlowMeterEntity.setVersion(0);
+        userFlowMeterEntity.setDateCreated(new Date());
+        userFlowMeterEntity.setLastModified(new Date());
+        userFlowMeterEntity.setUserId(Long.valueOf(userId));
+        userFlowMeterEntity.setReason(GlobalConstant.REGISTER);
+        userFlowMeterEntity.setRecordStatus(GlobalConstant.INIT_SATTE);
+        userFlowMeterEntity.setOriginalSilverBean(0);
+        userFlowMeterEntity.setChangeSilverBean(GlobalConstant.INT_SILVERBEAN);
+        userFlowMeterEntity.setCurrentSilverBean(GlobalConstant.INT_SILVERBEAN);
+        userFlowMeterEntity.setChangeGold(0);
+        userFlowMeterEntity.setCurrentGold(0);
+        userFlowMeterEntity.setOriginalGold(0);
+        userFlowMeterEntity.setType(GlobalConstant.SILVERBEAN);
+        userFlowMeterService.addUserFlowMeter(userFlowMeterEntity);
+        userFlowMeterEntity.setId(System.currentTimeMillis()+1);
+        userFlowMeterEntity.setVersion(0);
+        userFlowMeterEntity.setDateCreated(new Date());
+        userFlowMeterEntity.setLastModified(new Date());
+        userFlowMeterEntity.setUserId(Long.valueOf(userId));
+        userFlowMeterEntity.setRecordStatus(GlobalConstant.INIT_SATTE);
+        userFlowMeterEntity.setOriginalGold(0);
+        userFlowMeterEntity.setChangeGold(GlobalConstant.INT_GOLD);
+        userFlowMeterEntity.setCurrentGold(GlobalConstant.INT_GOLD);
+        userFlowMeterEntity.setChangeSilverBean(0);
+        userFlowMeterEntity.setCurrentSilverBean(0);
+        userFlowMeterEntity.setOriginalSilverBean(0);
+        userFlowMeterEntity.setType(GlobalConstant.GOLD);
+        userFlowMeterService.addUserFlowMeter(userFlowMeterEntity);
+    }
 }
+

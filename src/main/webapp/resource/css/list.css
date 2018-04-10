@@ -300,8 +300,9 @@ element.style {
     line-height: 38px;
     background-color: #fafafa;
     border-bottom: 1px solid #f2f2f2;
-    position: relative;
+    position: fixed;
     z-index: 10;
+    width: 100%;
 }
 
 /* a {
@@ -322,7 +323,9 @@ element.style {
     margin:60px auto;
     overflow: hidden;
     position: relative;
-    margin:1px auto;}
+    margin:1px auto;
+    top:5%;
+    }
 .wrap ul{
     position: absolute;
     left: 0px;
@@ -518,6 +521,12 @@ i, cite, em, var, address, dfn {
     width: 93%;
     margin: 0 auto;
     position: relative;
+    top:30px;
+}
+.width-1181 {
+    width: 93%;
+    margin: 0 auto;
+    position: relative;
 }
 .header-box .big-nav .logo {
     float: left;
@@ -531,7 +540,7 @@ a {
 }
 .header-box .big-nav .right-menu {
     position: relative;
-    padding-top: 17px;
+    padding-top: 16px;
     height: 73px;
 }
 .header-box .right-menu {

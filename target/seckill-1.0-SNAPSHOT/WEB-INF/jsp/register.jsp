@@ -17,7 +17,7 @@
     <link rel="bookmark"href="/resource/img/seckill.ico" />--%>
        <link rel="shortcut icon" href="/resource/img/seckill.ico" />
        <link rel="bookmark"href="/resource/img/seckill.ico" />
-   <meta name=”viewport” content=”width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no” />
+       <meta name=”viewport” content=”width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no” />
        <%--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>--%>
        <script src="/resource/script/jquery.min.js"></script>
        <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->

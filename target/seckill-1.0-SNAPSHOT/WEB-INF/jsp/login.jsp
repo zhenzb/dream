@@ -13,7 +13,6 @@
     <link rel="shortcut icon" href="/resource/img/seckill.ico" />
     <link rel="bookmark"href="/resource/img/seckill.ico" />
     <title>用户登录</title>
-
     <style>
         element.style {
         }

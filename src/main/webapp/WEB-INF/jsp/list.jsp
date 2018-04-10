@@ -300,7 +300,7 @@
 <div class="header-box" data-current="home">
     <%--小导航--%>
     <div class="small-nav">
-        <div class="width-1180">
+        <div class="width-1181">
             <div class="left-login-info">
                 <c:if test="${empty sessionScope.user}">
                 <%--没登录情况--%>
