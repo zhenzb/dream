@@ -63,27 +63,27 @@ public class indexController {
         List<MessageEntity> messageAll;
         List list1;
         List<SeckillEntity> successKilled;
-        String number;
-       /* list1 = redisDao.getSeckillList("seckillList");
+        //String number;
+        /* list1 = redisDao.getSeckillList("seckillList");
         successKilled = redisDao.getSeckillList("successKilledList");
         messageAll = redisDao.getSeckillList("MessageEntityList");
         number = redisDao.getNumber("seckillSize");*/
         //LOGGER.info("redis:"+list1);
-       // if(null == list1 || null ==successKilled || null ==messageAll || null == number) {
-            List<SeckillEntity> list = seckillService.findSeckillEntityByState();
-            list1 = ergodicList(list);
-            successKilled = successKilledService.findSuccessKilled();
-            messageAll = messageService.findMessageAll();
-            List<SeckillEntity> seckillSize = seckillService.findSeckillEntity();
-            /*redisDao.setListRedis("seckillList",list1);
-            redisDao.setListRedis("successKilledList",successKilled);
-            redisDao.setListRedis("MessageEntityList",messageAll);
-            redisDao.putNumber("seckillSize",seckillSize.size());*/
+        // if(null == list1 || null ==successKilled || null ==messageAll || null == number) {
+        List<SeckillEntity> list = seckillService.findSeckillEntityByState();
+        list1 = ergodicList(list);
+        successKilled = successKilledService.findSuccessKilled();
+        messageAll = messageService.findMessageAll();
+        //List<SeckillEntity> seckillSize = seckillService.findSeckillEntity();
+        /*redisDao.setListRedis("seckillList",list1);
+        redisDao.setListRedis("successKilledList",successKilled);
+        redisDao.setListRedis("MessageEntityList",messageAll);
+        redisDao.putNumber("seckillSize",seckillSize.size());*/
         //}
-        model.addAttribute("messageList",messageAll);
         model.addAttribute("list",list1);
         session.setAttribute("successKilled",successKilled);
-        session.setAttribute("successSize",seckillSize.size());
+        model.addAttribute("messageList",messageAll);
+        //session.setAttribute("successSize",seckillSize.size());
         UserEntity user = (UserEntity)session.getAttribute("user");
         if(null !=user) {
             Cookie cookie = new Cookie("user", String.valueOf(user.getId()));
@@ -94,7 +94,7 @@ public class indexController {
     }
 
     @RequestMapping(value = "/searchList",method= RequestMethod.GET)
-    public String searchList(Model model, HttpSession session,HttpServletResponse response,HttpServletRequest request) {
+    public String searchList(Model model,HttpServletRequest request) {
         String zzb = request.getParameter("zzb");
         List<SeckillEntity> list = seckillService.findSeckillEntityByStateAndName(zzb);
         List list1 = ergodicList(list);
@@ -103,14 +103,9 @@ public class indexController {
         model.addAttribute("messageList",messageAll);
         model.addAttribute("list",list1);
         model.addAttribute("successKilled", successKilledEntity);
-        UserEntity user = (UserEntity)session.getAttribute("user");
-        if(null !=user) {
-            Cookie cookie = new Cookie("user", String.valueOf(user.getId()));
-            //cookie.setMaxAge(7 * 24 * 60 * 60);
-            response.addCookie(cookie);
-        }
         return "list";
     }
+
     @RequestMapping(value = "/login",method = RequestMethod.GET)
     public String login(){
         return "login";

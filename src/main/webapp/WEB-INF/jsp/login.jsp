@@ -243,7 +243,6 @@
     <div id="left-right-layout">
         <!-- 区域顶部-->
         <div class="block-top"></div>
-
         <!-- 区域主侧 -->
         <div class="block-main">
             <div class="customer-main">
@@ -274,12 +273,12 @@
                         </div>
                         <div class="group-input">
                             <span class="express-login">快速登录：</span>
-                            <!-- <span id="qqLoginBtn"></span> -->
-                            <!--<a style="display:none" target="_blank" class="faster-login-btn qq" href="https://graph.qq.com/oauth2.0/authorize?response_type=token&client_id=101329432&redirect_uri=https://www.juxiangyou.com/login/quick&scope=get_user_info&state=QbKU9Mibwwm">-->
-                            <a target="_blank" data-point="1B1007" class="faster-login-btn qq" href="https://graph.qq.com/oauth2.0/authorize?response_type=token&client_id=101329432&redirect_uri=http://www.juxiangyou.com/login/quick&scope=get_user_info&state=QbKU9Mibwwm">
-                                <!--<img src="//img.juxiangyou.com/common/home/Connect_logo_7.png" alt="QQ登录" border="0">-->
-                            </a>
-                            <script type="text/javascript">
+                             <span id="qqLoginBtn"></span>
+                             <a style="display:none" target="_blank" class="faster-login-btn qq" href="https://graph.qq.com/oauth2.0/authorize?response_type=token&client_id=101329432&redirect_uri=https://www.juxiangyou.com/login/quick&scope=get_user_info&state=QbKU9Mibwwm">
+                             <a target="_blank" data-point="1B1007" class="faster-login-btn qq" href="https://graph.qq.com/oauth2.0/authorize?response_type=token&client_id=101329432&redirect_uri=http://www.juxiangyou.com/login/quick&scope=get_user_info&state=QbKU9Mibwwm">
+                                <%--<img src="//img.juxiangyou.com/common/home/Connect_logo_7.png" alt="QQ登录" border="0">--%>
+                             </a>
+                             <script type="text/javascript">
 
                                 function qqLoginHandle(){
                                     QC.Login({

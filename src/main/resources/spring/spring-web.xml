@@ -70,6 +70,7 @@
                         <value>/recruit</value>
                         <value>/z</value>
                         <value>/recruitDetails</value>
+                        <value>/index1.jsp</value>
                     </list>
                 </property>
             </bean>
