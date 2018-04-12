@@ -242,6 +242,11 @@ public class indexController {
         modelAndView.addObject("userFlowMeterList",userFlowMeterList);
         return modelAndView;
     }
+    @RequestMapping(value = "/publishMessage")
+    public ModelAndView publishMessage(ModelAndView modelAndView){
+        modelAndView.setViewName("publishMessage");
+        return modelAndView;
+    }
 @Autowired
 SchedulerFactoryBean schedulerFactoryBean;
     @RequestMapping(value = "/z")

@@ -641,6 +641,9 @@
             <li id="Welfare">
                 <a href="/messagePersonalCenter">我的消息</a>
             </li>
+            <li id="Welfare">
+                <a href="/publishMessage">发布公告</a>
+            </li>
 
             <%--<li class="nav-head">
                 <i class="nav-icon i1"></i>
