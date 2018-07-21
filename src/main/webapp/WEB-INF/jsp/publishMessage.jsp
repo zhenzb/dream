@@ -810,8 +810,12 @@
                         </div>
                     </div>
                 </div>--%>
-                <textarea id="container" name="container" style="width: 800px; height: 400px; margin: 0 auto;"></textarea>
+                <form action="message/addMessage" method="post">
+                    <textarea id="container" name="container" style="width: 800px; height: 400px; margin: 0 auto;"></textarea>
+                    <input type="submit" name="sumbit" value="发布">
+                </form>
             </div>
+            <%--<button onclick="getContent()">获得内容</button>--%>
         </div>
     </div>
             </div>
@@ -822,6 +826,13 @@
 <script src="/resource/script/jquery.min.js"></script>
 <script type="text/javascript">
     var ue = UE.getEditor("container");
+    function getContent() {
+        var arr = [];
+        arr.push("使用editor.getContent()方法可以获得编辑器的内容");
+        arr.push("内容为：");
+        arr.push(UE.getEditor('container').getContent());
+        alert(arr.join("\n"));
+    }
 </script>
 <script type="text/javascript">
     $(function () {
@@ -1129,7 +1140,7 @@
 </script>
 </body>
 <script type="text/javascript">
-    window.onload = function() {
+   /* window.onload = function() {
         document.onkeydown = function() {
             var e = window.event || arguments[0];
             //屏蔽F12
@@ -1147,6 +1158,6 @@
         document.oncontextmenu = function() {
             return false;
         }
-    }
+    }*/
 </script>
 </html>
