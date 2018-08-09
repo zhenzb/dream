@@ -74,6 +74,7 @@
                         <value>/z</value>
                         <value>/recruitDetails</value>
                         <value>/index1.jsp</value>
+                        <value>/UploadImage/addImage</value>
                     </list>
                 </property>
             </bean>
