@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.force4us.dao.RentingDao">
+    <select id="findList" resultType="RentingEntity">
+        select *
+        from renting
+        where record_status=#{recordStatus}
+        order by date_created desc;
+    </select>
+
+    <select id="findRenting" resultType="RentingEntity">
+        select *
+        from renting
+        where id=#{id}
+    </select>
+    <select id="findRntingByuserId" resultType="RentingEntity">
+        select *
+        from renting
+        where user_id=#{userId}
+    </select>
+
+    <insert id="insertRenting">
+        INSERT  INTO renting(id,date_created,last_modified,record_status,house_name,house_size,house_price,contacts_name,phone,
+        house_image,house_image_one,house_image_two,house_image_three,house_address,remarks,user_id)
+        VALUES (#{id},#{dateCreated},#{lastModified},#{recordStatus},#{houseName},#{houseSize},#{housePrice},#{contactsName},
+        #{phone},#{houseImage},#{houseImageOne},#{houseImageTwo},#{houseImageThree},#{houseAddress},#{remarks},#{userId})
+    </insert>
+</mapper>

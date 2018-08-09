@@ -7,6 +7,7 @@ import com.force4us.comm.entity.Seckilled;
 import com.force4us.dao.cache.RedisDao;
 import com.force4us.entity.*;
 import com.force4us.service.*;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.apache.ibatis.annotations.Param;
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
@@ -57,6 +58,10 @@ public class indexController {
     private RedisDao redisDao;
     @Autowired
     RecruitService recruitService;
+    @Autowired
+    RentingService rentingService;
+    @Value("${img_host}")
+    String IMAGEURL;
 
     @RequestMapping(value = "",method= RequestMethod.GET)
     public String list(Model model, HttpSession session,HttpServletResponse response) {
@@ -182,7 +187,7 @@ public class indexController {
             Seckilled seckilled = new Seckilled();
             seckilled.setSeckillSize(successKilledEntity.size());
             seckilled.setSeckillId(list.get(i).getSeckillId());
-            seckilled.setImgUrl(list.get(i).getImgUrl());
+            seckilled.setImgUrl(IMAGEURL+list.get(i).getImgUrl());
             seckilled.setName(list.get(i).getName());
             seckilled.setStartTime(list.get(i).getStartTime());
             seckilled.setEndTime(list.get(i).getEndTime());
@@ -195,8 +200,15 @@ public class indexController {
 
     @RequestMapping(value = "/recruit")
     public ModelAndView recruit(ModelAndView modelAndView){
+        List<RecruitEntity> list = new ArrayList<RecruitEntity>();
         List<RecruitEntity> recruitList = recruitService.findRecruitByRecordStatus(GlobalConstant.PUBLISH);
-        modelAndView.addObject("recruitList",recruitList);
+        for (RecruitEntity recruitEntity:recruitList) {
+            String logoUrl = recruitEntity.getLogoUrl();
+           String newLogoUrl = IMAGEURL+logoUrl;
+           recruitEntity.setLogoUrl(newLogoUrl);
+           list.add(recruitEntity);
+        }
+        modelAndView.addObject("recruitList",list);
         modelAndView.setViewName("recruit");
         return modelAndView;
     }
@@ -247,6 +259,53 @@ public class indexController {
         modelAndView.setViewName("publishMessage");
         return modelAndView;
     }
+    @RequestMapping(value="/showRenting")
+    public ModelAndView showRenting(ModelAndView modelAndView){
+        List<RentingEntity> list1 = new ArrayList<RentingEntity>();
+            List list = rentingService.findList(0);
+        for (Object renting:list) {
+            RentingEntity renting1 = (RentingEntity) renting;
+            String houseImage = renting1.getHouseImage();
+            String houseImageOne = renting1.getHouseImageOne();
+            String houseImageTwo = renting1.getHouseImageTwo();
+            String houseImageThree = renting1.getHouseImageThree();
+            String pictureUrl = IMAGEURL+houseImage;
+            String pictureUrl_1 = IMAGEURL+houseImageOne;
+            String pictureUrl_2 = IMAGEURL+houseImageTwo;
+            String pictureUrl_3 = IMAGEURL+houseImageThree;
+            renting1.setHouseImage(pictureUrl);
+            renting1.setHouseImageOne(pictureUrl_1);
+            renting1.setHouseImageTwo(pictureUrl_2);
+            renting1.setHouseImageThree(pictureUrl_3);
+            list1.add(renting1);
+        }
+       modelAndView.addObject("rentingList",list1);
+       modelAndView.setViewName("renting");
+       return modelAndView;
+    }
+    @RequestMapping(value = "/rentingDetile")
+    public ModelAndView rentingDetile(ModelAndView modelAndView,@RequestParam(value = "i") long id){
+        RentingEntity renting = rentingService.findRrnting(id);
+        modelAndView.addObject("renting",renting);
+        modelAndView.setViewName("rentingDetile");
+        return modelAndView;
+    }
+    @RequestMapping(value = "/rentingpublish")
+    public ModelAndView publishrenting(ModelAndView modelAndView){
+        modelAndView.setViewName("rentingpublish");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/rentingCenter")
+    public ModelAndView rentingCenter(ModelAndView modelAndView,HttpSession session) {
+        UserEntity user = (UserEntity) session.getAttribute("user");
+        List<RecruitEntity> rentingtList = rentingService.findList(0,user.getId());
+        modelAndView.addObject("rentingList", rentingtList);
+        modelAndView.setViewName("rentingCenter");
+        return modelAndView;
+    }
+
+
 @Autowired
 SchedulerFactoryBean schedulerFactoryBean;
     @RequestMapping(value = "/z")

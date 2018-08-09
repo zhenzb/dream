@@ -31,7 +31,7 @@ function headImg() {
     });
 }
 
-    $("#alipayId").click(
+   /* $("#alipayId").click(
         function(){
             //var moneyId = $("#moneyId");
              var zz = $('#zhen');
@@ -46,4 +46,4 @@ function headImg() {
             $("#commitId").click(function(){
                 window.location.href="/login";
             });
-        });
+        });*/

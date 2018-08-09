@@ -58,6 +58,7 @@
                         <value>/</value>
                         <value>/login</value>
                         <value>/user/login</value>
+                        <value>/user/wxLogin</value>
                         <value>/register</value>
                         <value>/user/addUser</value>
                         <value>/seckill/detail</value>
@@ -68,6 +69,8 @@
                         <value>/systemMessage</value>
                         <value>/searchList</value>
                         <value>/recruit</value>
+                        <value>/showRenting</value>
+                        <value>/rentingDetile</value>
                         <value>/z</value>
                         <value>/recruitDetails</value>
                         <value>/index1.jsp</value>

@@ -621,9 +621,6 @@
             <li id="recruits">
                 <a href="/recruitCenter">招聘记录</a>
             </li>
-            <li id="recruits">
-                <a href="/rentingCenter">租房记录</a>
-            </li>
             <li id="Order" >
                 <a href="/pg" >发布商品</a>
             </li>
@@ -682,34 +679,28 @@
                 </div>
                 <div class="personal-tbl ubi-tbl">
                     <div class="tr thead">
-                        <p class="th td1">商品名称</p>
-                        <p class="th td1">商品价格</p>
+                        <p class="th td1">房屋名称</p>
+                        <p class="th td1">房屋价格</p>
                        <%-- <p class="th td3">&nbsp;</p>--%>
                         <p class="th td1">联系电话</p>
                         <p class="th td1">开始时间</p>
                         <p class="th td1">结束时间</p>
-                        <p class="th td1">图片</p>
-                        <p class="th td1">商品数量</p>
+                        <p class="th td1">房屋图片</p>
+                        <p class="th td1">房屋数量</p>
                         <p class="th td1">发布状态</p>
                     </div>
                     <div class="tbody J_myAccountTbody">
 
-                        <c:forEach items="${punlishGoodsList}" var="list">
+                        <c:forEach items="${rentingList}" var="list">
                         <div class="tr">
-                            <p class="td1"> ${list.name}</p>
-                            <p class="td1"> ${list.price}</p>
-                            <p class="td1"> ${list.originalPrice}</p>
-                            <p class="td1"> <fmt:formatDate value="${list.startTime}" pattern="yyyy-MM-dd HH:mm:ss" /></p>
-                            <p class="td1"> <fmt:formatDate value="${list.endTime}" pattern="yyyy-MM-dd HH:mm:ss" /></p>
-                            <p class="td1"><img src="${list.imgUrl}" width="100%" height="100%"></p>
-                            <p class="td1"> ${list.number}</p>
-                            <%--<p class="td3">&nbsp;</p>--%>
-                          <%--  <p class="td4" title="聚财宝第143970期2018-01-20 收益4U币">${list.seckillName}</p>--%>
-                           <%-- <p class="td5 postive">
-                                ${list.price}元
-                                <i class="ubi"></i>
-                            </p>--%>
-                            <p class="td1">${list.state == 1 ?'发布成功':list.state == 0 ?'审核中':'发布失败'}</p>
+                            <p class="td1"> ${list.houseName}</p>
+                            <p class="td1"> ${list.housePrice}</p>
+                            <p class="td1"> ${list.phone}</p>
+                            <p class="td1"> <fmt:formatDate value="${list.dateCreated}" pattern="yyyy-MM-dd HH:mm:ss" /></p>
+                            <p class="td1"> <fmt:formatDate value="${list.lastModified}" pattern="yyyy-MM-dd HH:mm:ss" /></p>
+                            <p class="td1"><img src="${list.houseImage}" width="100%" height="100%"></p>
+                            <p class="td1"> 1</p>
+                            <p class="td1">${list.recordStatus == 1 ?'发布成功':list.recordStatus == 0 ?'审核中':'发布失败'}</p>
                         </div>
 
                         </c:forEach>

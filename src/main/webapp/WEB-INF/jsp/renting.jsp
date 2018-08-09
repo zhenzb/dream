@@ -11,10 +11,10 @@
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <link rel="stylesheet" href="/resource/script/bootstrap.css">
     <link rel="stylesheet" href="/resource/css/list.css">
+    <link rel="stylesheet" href="/resource/css/recruit.css">
     <script src="/resource/script/jquery-3.2.1.min.js"></script>
     <link rel="shortcut icon" href="/resource/img/seckill.ico" />
     <link rel="bookmark"href="/resource/img/seckill.ico" />
-    <script src="/resource/script/upload.js"></script>
     <title>亿客</title>
     <style>
         .index-banner-box .index-login {
@@ -54,7 +54,7 @@
             background: url(/resource/img/index_loginout_bg.png) no-repeat 0 0;
             position: absolute;
             right: -26px;
-            top: -42px;
+            top: -30px;
         }
         .index-login .user-news-box {
             padding: 0 0 20px;
@@ -89,8 +89,8 @@
             height: 14px;
             background: url(/resource/img/index_login.png) no-repeat 0 -229px;
             position: absolute;
-            top: 5px;
-            right: 13px;
+            top: 10px;
+            right: 10px;
         }
 
         .index-login .user-news-box .user-top {
@@ -224,11 +224,11 @@
        .customer-search {
            position: relative;
            left: 40%;
-           height: 92px;
-           line-height: 17px;
+           height: 126px;
+           line-height: 45px;
            width: 510px;
            margin-left: -255px;
-           top:40px;
+           top:77px;
        }
        .customer-search>.search-text {
            float: left;
@@ -244,6 +244,16 @@
            -moz-border-radius: 20px 0 0 20px;
            -webkit-border-radius: 20px 0 0 20px;
        }
+      /* body, button, input, select, textarea {
+           font: 12px/1 Microsoft YaHei,"\5b8b\4f53",Tahoma,Helvetica,Arial,sans-serif;
+       }*/
+      /* blockquote, body, button, dd, dl, dt, fieldset, h1, h2, h3, h4, h5, h6, hr, input, legend, li, ol, p, pre, td, textarea, th, ul {
+           margin: 0;
+           padding: 0;
+       }*/
+      /* input:not([type]), input[type="email" i], input[type="number" i], input[type="password" i], input[type="tel" i], input[type="url" i], input[type="text" i] {
+           padding: 1px 0px;
+       }*/
        input {
            -webkit-appearance: textfield;
            background-color: white;
@@ -256,6 +266,23 @@
            border-color: initial;
            border-image: initial;
        }
+       /*input, textarea, select, button {
+           text-rendering: auto;
+           color: initial;
+           letter-spacing: normal;
+           word-spacing: normal;
+           text-transform: none;
+           text-indent: 0px;
+           text-shadow: none;
+           display: inline-block;
+           text-align: start;
+           margin: 0em;
+           font: 13.3333px Arial;
+       }*/
+       /*user agent stylesheet
+       input, textarea, select, button, meter, progress {
+           -webkit-writing-mode: horizontal-tb;
+       }*/
        .customer-search>.search-btn {
            float: left;
            display: block;
@@ -290,6 +317,15 @@
        s, strike, del {
            text-decoration: line-through;
        }
+        /*.news-box li {
+            line-height: 30px;
+            height: 30px;
+            font-size: 14px;
+            width: 250px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }*/
         .big-nav .right-menu .child-menu.on {
             color: #fff;
             background-color: #31c37c;
@@ -305,13 +341,13 @@
                 <c:if test="${empty sessionScope.user}">
                 <%--没登录情况--%>
                 <span class="clr-ff4800">
-                   &nbsp;&nbsp; <a class="clr-ff4800" style="text-decoration: none;" href="/login">您好，请登录</a></span>&nbsp;
+                    &nbsp;&nbsp;<a class="clr-ff4800" style="text-decoration: none;" href="/login">您好，请登录</a></span>&nbsp;
                     <a href="/register" style="text-decoration: none;">免费注册</a>
                 </c:if>
                 <c:if test="${not empty sessionScope.user}">
                 <%--已登录情况--%>
                 <span class="clr-ff4800">
-                    &nbsp;&nbsp;您好，${sessionScope.user.userName}</span>&nbsp;
+                   &nbsp;&nbsp;您好，${sessionScope.user.userName}</span>&nbsp;
                     <a style="text-decoration: none;" href="/logout">[退出]
                 </c:if>
             </div>
@@ -329,15 +365,19 @@
                     <img src="/resource/img/logo-new.png" alt="">
                 </a>
                 <div class="right-menu">
-                    <a href="/" data-point="1A1001" data-nav="home" class="child-menu" style="color: #fff;background-color: #31c37c;">首页</a>
-                    <a href="/recruit" data-point="1A1002" data-nav="newborn" class="child-menu">招聘市场</a>
+                    <a href="/" data-point="1A1001" data-nav="home" class="child-menu">首页</a>
+
+                    <a href="/recruit" data-point="1A1002" data-nav="newborn" class="child-menu" style="color: #fff;background-color: #31c37c;">招聘市场</a>
+
                    <%-- <a href="/games" data-point="1A1004" data-nav="games" class="child-menu">
                         试玩体验<i class="top-pic">棋牌<s class="jt"></s></i>
                     </a>--%>
-                    <a href="/showRenting" data-point="1A1005" data-nav="finance" class="child-menu">租房专区</a>
-                     <a href="" data-point="1A1006" data-nav="welfare" class="child-menu"
-                        onclick="{alert('该功能改造升级中，敬请期待...')}">反馈信息
+                    <a href="/renting" data-point="1A1005" data-nav="finance" class="child-menu">租房专区</a>
+
+                     <a onclick="{alert('该功能改造升级中，敬请期待...')}" href="" data-point="1A1006" data-nav="welfare" class="child-menu">
+                         反馈信息
                      </a>
+
                     <%-- <a href="/fun/play/temporary" data-point="1A1007" data-nav="fun" class="child-menu">娱乐大厅</a>
                      <a href="/vip" data-point="1A1008" data-nav="vip" class="child-menu">VIP</a>--%>
                     <!-- <span class="bg-hover"></span> -->
@@ -378,9 +418,9 @@
     <%--顶部大图--%>
     <div class="wrap" id='wrap'>
          <ul id="pic">
-         <li><img width="100%" height="230%" src="/resource/img/banner/v1/banner1.png" alt=""></li>
-         <li style="display: none;"><img width="100%" height="230%" src="/resource/img/banner/v1/banner2.png" alt=""></li>
-         <li style="display:none;"><img width="100%" height="230%" src="/resource/img/banner/v1/banner3.png" alt=""></li>
+         <li><img width="100%" height="230%" src="/resource/img/banner/v1/recruit1.png" alt=""></li>
+         <li style="display: none"><img width="100%" height="230%" src="/resource/img/banner/v1/recruit2.png" alt=""></li>
+         <li style="display:none;"><img width="100%" height="230%" src="/resource/img/banner/v1/recruit3.png" alt=""></li>
          <%--<li><img width="100%" height="230%" src="/resource/img/banner/banner4.png" alt=""></li>
          <li><img width="100%" height="230%" src="/resource/img/banner/banner5.png" alt=""></li>--%>
          </ul>
@@ -388,7 +428,7 @@
          <li class="on">1</li>
          <li>2</li>
          <li>3</li>
-      <%--<li>4</li>
+         <%--<li>4</li>
          <li>5</li>--%>
          </ol>
     </div>
@@ -422,10 +462,12 @@
                 </c:if>
                 <span class="user-name mar-t12" title="好啦">${sessionScope.user==null ?"您还未登录":sessionScope.user.userName}</span>
                 <span class="user-id mar-t4">${sessionScope.userAccount == null?" ":sessionScope.userAccount.remarks}&nbsp;&nbsp;<img src="${sessionScope.userAccount.levelImg}"/></span>
+
+
             </div>
             <a class="user-link" data-point="1B1013" href="/publishList" style="text-decoration: none;"><s class="qiandao-pic personal"></s>个人中心</a>
 
-            <a data-point="1B1012" class="qiandao-btn" href="/pg"  title="" style="text-decoration: none;"><s class="qiandao-pic"></s>发布商品</a>
+            <a data-point="1B1012" class="qiandao-btn" href="/publishRecruit"  title="" style="text-decoration: none;" ><s class="qiandao-pic"></s>发布招聘</a>
 
         </div>
         <p class="user-onwer-list"><%--<a data-point="1B1010" class="onwer-link" href="/personal/CashApply" title="">[提现]</a>--%>金币：<span class="color-01">${sessionScope.userAccount.gold}</span><s class="ubi_1"></s></p>
@@ -438,19 +480,56 @@
 <div id="left-right-layout">
     <%--区域顶部--%>
 <div class="block-top">
-        <div class="index-buzhou">
-            <%--<p class="now-num">
-                <strong>186</strong>
-                件
-            </p>--%>
-        </div>
+        <%--<div class="index-buzhou">
+        </div>--%>
 <%--搜索引擎框--%>
  <div class="customer-search">
-            <input id="searchKeyword" class="search-text" type="text" placeholder="请输入要探索的商品名称或关键字" />
-            <a class="J_search search-btn" href="#" onclick="searchGoods()" title=""><s class="s-icon"></s>搜索</a>
+            <input id="searchKeyword" class="search-text" type="text" placeholder="请输入想要租房的关键字" />
+            <a class="J_search search-btn" href="#" onclick="searchRecruit()" title=""><s class="s-icon"></s>搜索</a>
         </div>
+   <%-- </div>
+        <form id="queryOrderForm" method="get" enctype="application/x-www-form-urlencoded">
+            <div class="order-tab">
+                <div class="order-tab-bd">
+                    <div style="display:block" class="item">
+                        <a id="querymyorderbutton" class="btn92s fr" href="#nogo" shape="rect"><label style="cursor:pointer;" for="querybutton">查询</label>
+                            <span id="use_G"><select name="queryType"><option value="1">按订票日期查询</option><option value="2">按乘车日期查询</option></select></span>
+                            <span class="inp-s"><input type="text" id="sequeue_train_nameText" class="inpA" value="" /><span class="i-clear" id="clear_input_txt" title="清除"></span></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>--%>
 <%--区域主侧--%>
-<div class="block-main" style="height:1px; margin-top:-1px;clear: both;overflow:hidden;">
+    <div class="block-main">
+        <div class="main" style="position:absolute; height:100%; width:100%; overflow:hidden">
+            <div class="main" style="position:absolute; height:100%; width:102%; overflow:auto">
+                <ul class="list-ad-items">
+                    <c:forEach items="${rentingList}" var="renting">
+                            <li data-aid="" data-service="regular" data-cpm-sign data-inorganic="0" class="listing-ad  item-regular  seen">
+                                <a href="/rentingDetile?i=${renting.id}" target="_self" data-cpc class="media-cap ">
+                                    <img src="${renting.houseImage}" alt="">
+                                    <sapn class="figcaption"></sapn>
+                                </a>
+                                <div class="media-body">
+                                    <div class="media-body-title">
+                                        <sapn class="highlight">${renting.housePrice}</sapn>
+                                        <a href="/rentingDetile?i=${renting.id}" target="_self" class="ad-title" style="text-decoration: none;">${renting.houseName}</a>
+                                    </div>
+                                    <div class="ad-item-detail">${renting.houseName}</div>
+                                    <div class="ad-item-detail">
+                                        <time><fmt:formatDate value="${renting.lastModified}" pattern="yyyy-MM-dd HH:mm:ss" /></time>
+                                        &nbsp;&nbsp;来自：
+                                        <a href="" target="_self" class="source" style="text-decoration: none;">亿客网</a>
+                                    </div>
+                                </div>
+                            </li>
+                    </c:forEach>
+                </ul>
+            </div>
+        </div>
+    </div>
+<%--<div class="block-main" style="height:1px; margin-top:-1px;clear: both;overflow:hidden;">
     <div class="channel-box game-height_1">
     <div class="channel-box game-height">
         <div class="box-title">
@@ -467,11 +546,11 @@
                             <div class="cover">
                                 <div class="opacity"></div>
                                 <a href="/seckill/detail?seckillId=${sk.seckillId}" style="display:block; width:100%; height:100%; position: absolute; top:0; left:0; cursor:pointer;"  target="_self" >
-                                        <%--<div class="info">
+                                        &lt;%&ndash;<div class="info">
                                             <a href="/seckill/${sk.seckillId}/detail" class="sw-btn J_click_key" target="_blank">立即试玩</a>
                                             <!-- <p class="name">虎牙棋牌专区6期</p> -->
                                             <p class="rs">参与人数：1405人</p>
-                                        </div>--%>
+                                        </div>&ndash;%&gt;
                                 </a>
                             </div>
                         </div>
@@ -486,68 +565,42 @@
                             </p>
                         </div>
                     </li>
-
-                    <%-- <a data-point="1B1014" href="/seckill/${sk.seckillId}/detail" class="ad-href " target="_blank" ><img src="/resource/img/iphone.png" alt="" width="270px" height="180px"></a>
-                     <div class="bottom-content">
-
-                         <p>
-                             虎牙棋牌专区6期
-
-                         </p>
-                         <p>
-                             每人奖励：<span class="sw-jl">33,589万</span><i class="ubi"></i>
-                         </p>
-                     </div>--%>
-                    <%-- <td><img src="/resource/img/iphone.png">${sk.name}</td>
-                                    <td>${sk.number}</td>
-                                    <td>
-                                        <fmt:formatDate value="${sk.startTime}" pattern="yyyy-MM-dd HH:mm:ss" />
-                                    </td>
-                                    <td>
-                                        <fmt:formatDate value="${sk.endTime}" pattern="yyyy-MM-dd HH:mm:ss" />
-                                    </td>
-                                    <td>
-                                        <fmt:formatDate value="${sk.createTime}" pattern="yyyy-MM-dd HH:mm:ss" />
-                                    </td>
-                                    <td><a class="btn btn-info" href="/seckill/${sk.seckillId}/detail" target="_blank">详情</a></td>--%>
-
-
                 </c:forEach>
             </ul>
         </div>
     </div>
 </div>
-</div>
+</div>--%>
 <%--区域右侧--%>
 <div class="block-right" style="min-height: 515px;">
-    <div class="news-box">
+   <%-- <div class="news-box">
         <h3>
             <i class="icon"></i>
             <font color="red">网站公告</font>
         </h3>
         <ul>
 
-            <%--<marquee id=go12 onMouseOver=go1.stop() onMouseOut=go1.start() scrollamount=2 scrolldelay=150 direction=up> --%>
+            &lt;%&ndash;<marquee id=go12 onMouseOver=go1.stop() onMouseOut=go1.start() scrollamount=2 scrolldelay=150 direction=up> &ndash;%&gt;
                 <c:forEach items="${messageList}" var ="message">
                     </br>
                     <li><a href="/systemMessage?i=${message.id}" style="text-decoration: none;"><font color="#576077" size="3"><span></span>${message.messageTitle}</font></a></li><br/>
                </c:forEach>
-                <%-- </marquee>--%>
+                &lt;%&ndash; </marquee>&ndash;%&gt;
 
         </ul>
-    </div>
+    </div>--%>
     <div class="news-box">
         <h3>
             <i class="icon"></i>
-            <font color="red">最新发布商品</font>
+            <font color="red">最新发布招聘</font>
         </h3>
         <ul>
 
-            <marquee heigth="100px" id=go1 onMouseOver=go1.stop() onMouseOut=go1.start() scrollamount=2 scrolldelay=150 direction=up>
-                <c:forEach items="${sessionScope.successKilled}" var ="successKill">
-                <li><font color="#663399"></span>【恭喜】${successKill.userName}*** 发布了${successKill.name}</font></li><br/>
+            <%--<marquee heigth="100px" id=go1 onMouseOver=go1.stop() onMouseOut=go1.start() scrollamount=2 scrolldelay=150 direction=up>
+                <c:forEach items="${recruitList}" var ="recruit">
+                <li><font color="#663399"></span>${recruit.contactsName}*** 招聘${recruit.positionType}</font></li><br/>
                 </c:forEach>
-            </marquee>
+            </marquee>--%>
 
         </ul>
     </div>
@@ -584,41 +637,41 @@
 </div>
 </div>
 <!-- 底部区域 -->
-<div class="footer-box">
-    <div class="width-1180">
-        <p class="p-link">
-            <a href="#" target="_blank">关于我们</a>
-            <a href="/customer" target="_self">联系我们</a>
-            <a href="" target="_self">访问总量 ${sessionScope.pvNumber}次</a>
-            <%--<a href="#" target="_blank">家长监护</a>--%>
-        </p>
-        <p class="p-text">
-            备案/许可证号：京ICP备13015689号-4  ICP证：京B2-20140100  京网文[2017]2444-086号  Copyright  2013-2017   亿客网
-        </p>
-        <p class="p-text">联系电话：400-8899-088 &nbsp;&nbsp;北京亿客科技有限公司 &nbsp;&nbsp;<%--<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602000231" target="_blank">--%><img src="//img.juxiangyou.com/v1/ghs.png">浙公安网备33010602000231号<%--</a>--%></p>
-        <p class="p-img">
-           <%-- <a href="http://www.pingpinganan.gov.cn/web/index.aspx" target=_blank>
-                <img src="http://img.juxiangyou.com/v1/police.gif" width="127" height="47" alt="">
-            </a>--%>
-           <%-- <a href="https://search.szfw.org/cert/l/CX20150314007057007172" target=_blank>--%>
+    <div class="footer-box">
+        <div class="width-1180">
+            <p class="p-link">
+                <a href="#" target="_blank">关于我们</a>
+                <a href="/customer" target="_self">联系我们</a>
+                <a href="" target="_self">访问总量 ${sessionScope.pvNumber}次</a>
+                <%--<a href="#" target="_blank">家长监护</a>--%>
+            </p>
+            <p class="p-text">
+                备案/许可证号：京ICP备13015689号-4  ICP证：京B2-20140100  京网文[2017]2444-086号  Copyright  2013-2017   亿客网
+            </p>
+            <p class="p-text">联系电话：400-8899-088 &nbsp;&nbsp;北京亿客科技有限公司 &nbsp;&nbsp;<%--<a href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=33010602000231" target="_blank">--%><img src="//img.juxiangyou.com/v1/ghs.png">浙公安网备33010602000231号<%--</a>--%></p>
+            <p class="p-img">
+                <%-- <a href="http://www.pingpinganan.gov.cn/web/index.aspx" target=_blank>
+                     <img src="http://img.juxiangyou.com/v1/police.gif" width="127" height="47" alt="">
+                 </a>--%>
+                <%-- <a href="https://search.szfw.org/cert/l/CX20150314007057007172" target=_blank>--%>
                 <img src="/resource/img/cert.jpg" width="8%" height="47" alt="">
-            <%--</a>--%>
-            <%--<a href="https://ss.knet.cn/verifyseal.dll?sn=e14052233010049227etri000000&ct=df&a=1&pa=0.21805879403837025" target=_blank>--%>
+                <%--</a>--%>
+                <%--<a href="https://ss.knet.cn/verifyseal.dll?sn=e14052233010049227etri000000&ct=df&a=1&pa=0.21805879403837025" target=_blank>--%>
                 <img src="/resource/img/cnnic.png" width="8%" height="47" alt="">
-            <%--</a>--%>
-            <%--<a href="http://si.trustutn.org/info?sn=529170224027158122933&certType=1" target=_blank>--%>
+                <%--</a>--%>
+                <%--<a href="http://si.trustutn.org/info?sn=529170224027158122933&certType=1" target=_blank>--%>
                 <img src="/resource/img/bottom_large_img.png" width="8%" height="47" alt="">
-            <%--</a>--%>
-        </p>
+                <%--</a>--%>
+            </p>
+        </div>
     </div>
-</div>
 </body>
 <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 <%--<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>--%>
 
 <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
 <%--<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>--%>
-<%--<script src="/resource/script/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>--%>
+<script src="/resource/script/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 <script type="text/javascript">
     window.onload=function(){
         var wrap=document.getElementById('wrap'),
@@ -663,15 +716,9 @@
             changePic(index);
         }
     };
-
-        /*function todo() {
-            /!*alert("抱歉！该功能升级维护中...")*!/
-            window.location.href="http://127.0.0.1:8081";
-        };*/
-
-    function searchGoods() {
+    function searchRecruit() {
         var zzb = $("#searchKeyword").val();
-        window.location.href="/searchList?zzb="+zzb;
+        window.location.href="/searchRecruit?zzb="+zzb;
     };
 </script>
 <script type="text/javascript">
@@ -682,11 +729,6 @@
 
     function right_close() {
         $(".right-fixed").hide();
-    }
-
-    function uploadlogin() {
-        alert("请先登录");
-        window.location.href="/login";
     }
 
 </script>

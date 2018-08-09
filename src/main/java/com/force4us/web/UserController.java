@@ -35,6 +35,7 @@ import javax.servlet.http.HttpSession;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.PrintWriter;
 import java.util.*;
 
 import static org.springframework.web.bind.annotation.RequestMethod.GET;
@@ -231,11 +232,11 @@ public class UserController {
                 byte[] bytes = decoder.decodeBuffer(stream);
                 ByteArrayInputStream bais = new ByteArrayInputStream(bytes);
                 UploadFileUtil uploadFileUtil = new UploadFileUtil();
-                String zz = request.getSession().getServletContext().getRealPath("/");
-                zz = zz+"resource\\upload\\image\\";
+                //String zz = request.getSession().getServletContext().getRealPath("/");
+                String zz = IMAGELOCALHOST;
                 uploadFileUtil.uploadFile(bais, zz, fileNameNew);
                 //stream = IMAGEURL + IMAGELOCALHOST.substring(2, IMAGELOCALHOST.lastIndexOf("\\")).replace("\\", "/") + "/";
-               stream = IMAGEURL+"resource/upload/image/";
+               stream = IMAGEURL+"upload/";
                 }
                 UserEntity user = (UserEntity)session.getAttribute("user");
                 int i = userService.updateUserHeadImage(user.getId(), stream + fileNameNew);
@@ -371,5 +372,31 @@ public class UserController {
         userFlowMeterEntity.setType(GlobalConstant.GOLD);
         userFlowMeterService.addUserFlowMeter(userFlowMeterEntity);
     }
+
+    @RequestMapping(value = "/wxLogin")
+    public String wxLogin(HttpServletRequest request,HttpServletResponse response, HttpSession session,
+                        Model model) {
+
+
+        PrintWriter out = null;
+        String wxurl="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxf2da843fe3bd9967&redirect_uri=http://huasheng.jiangshidi.top/zhangda1/index.html&response_type=code&scope=snsapi_userinfo&state=1#wechat_redirect";
+        try {
+            out = response.getWriter();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        out.println("<!DOCTYPE HTML>");
+        out.println("<html>");
+        out.println("  <head><title>微信授权登录中...</title><meta charset=\"UTF-8\"></head>");
+        out.println("  <body>");
+        out.print("<script>location.href='"+wxurl+"';</script>");
+        out.println("  </body>");
+        out.println("</html>");
+        out.flush();
+        out.close();
+        return null;
+
+    }
+
 }
 

@@ -4,10 +4,9 @@ import com.force4us.comm.GlobalConstant;
 import com.force4us.comm.ImageUtil;
 import com.force4us.comm.UploadFileUtil;
 import com.force4us.dto.ResponseMessage;
-import com.force4us.entity.UserAccountEntity;
 import com.force4us.entity.UserEntity;
-import com.force4us.entity.UserFlowMeterEntity;
 import com.force4us.service.PublishGoodsService;
+import com.force4us.service.RentingService;
 import com.force4us.service.UserAccountService;
 import com.force4us.service.UserFlowMeterService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,13 +22,11 @@ import javax.servlet.http.HttpSession;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.math.BigDecimal;
-import java.util.Date;
 import java.util.Random;
 
 @Controller
-@RequestMapping(value = "/PublishGoods")
-public class PublishGoods {
+@RequestMapping(value = "/PublishRenting")
+public class PublishRenting {
     @Value("${img_host}")
     String IMAGEURL;
     @Value("${img.localhost}")
@@ -41,13 +38,15 @@ public class PublishGoods {
     @Autowired
     UserFlowMeterService userFlowMeterService;
     @Autowired
+    RentingService rentingService;
+    @Autowired
     AddUserAccount addUserAccount;
 
 
-    @RequestMapping("/addGoods")
+    @RequestMapping("/addRenting")
     @ResponseBody
-    public ResponseMessage addGoods(Long flashSaleId, String merchantDescribe, String validEndDate, String validBeginDate, Integer currentPrice, Long originalPrice, Integer amount, String seckillTitle,
-                                    String goodsAddress, MultipartFile bannerUrl, MultipartFile bannerUrl_1, MultipartFile bannerUrl_2, MultipartFile bannerUrl_3,
+    public ResponseMessage addRenting(Long flashSaleId, String houseName, String houseSize, Integer housePrice, String houseAddress, String contactsName,
+                                    String phone,String remark, MultipartFile houseImage,MultipartFile houseImage_one, MultipartFile houseImage_two, MultipartFile houseImage_three,
                                     HttpSession session, HttpServletRequest request){
         ResponseMessage responseMessage = new ResponseMessage();
         try {
@@ -59,14 +58,14 @@ public class PublishGoods {
         String fileNameNew_1 ="";
         String fileNameNew_2 ="";
         String fileNameNew_3 ="";
-        InputStream inputStream = bannerUrl.getInputStream();
-        InputStream inputStream_1 = bannerUrl_1.getInputStream();
-        InputStream inputStream_2 = bannerUrl_2.getInputStream();
-        InputStream inputStream_3 = bannerUrl_3.getInputStream();
-        String fileNameOld = bannerUrl.getOriginalFilename();
-        String fileNameOld_1 = bannerUrl_1.getOriginalFilename();
-        String fileNameOld_2 = bannerUrl_2.getOriginalFilename();
-        String fileNameOld_3 = bannerUrl_3.getOriginalFilename();
+        InputStream inputStream = houseImage.getInputStream();
+        InputStream inputStream_1 = houseImage_one.getInputStream();
+        InputStream inputStream_2 = houseImage_two.getInputStream();
+        InputStream inputStream_3 = houseImage_three.getInputStream();
+        String fileNameOld = houseImage.getOriginalFilename();
+        String fileNameOld_1 = houseImage_one.getOriginalFilename();
+        String fileNameOld_2 = houseImage_two.getOriginalFilename();
+        String fileNameOld_3 = houseImage_three.getOriginalFilename();
             if(fileNameOld!=null && !"".equals(fileNameOld)) {
                 String suffx = fileNameOld.substring(fileNameOld.lastIndexOf(".")).toLowerCase();
                 String suffx_1 = fileNameOld_1.substring(fileNameOld_1.lastIndexOf(".")).toLowerCase();
@@ -76,17 +75,17 @@ public class PublishGoods {
                 Random random_1 = new Random();
                 Random random_2 = new Random();
                 Random random_3 = new Random();
-                fileNameNew = random.nextInt(10000) + System.currentTimeMillis() + suffx;
-                fileNameNew_1 = random_1.nextInt(10000) + System.currentTimeMillis() + suffx_1;
-                fileNameNew_2 = random_2.nextInt(10000) + System.currentTimeMillis() + suffx_2;
-                fileNameNew_3 = random_3.nextInt(10000) + System.currentTimeMillis() + suffx_3;
+                fileNameNew = random.nextInt(1000) + System.currentTimeMillis() + suffx;
+                fileNameNew_1 = random_1.nextInt(1000) + System.currentTimeMillis() + suffx_1;
+                fileNameNew_2 = random_2.nextInt(1000) + System.currentTimeMillis() + suffx_2;
+                fileNameNew_3 = random_3.nextInt(1000) + System.currentTimeMillis() + suffx_3;
                 stream = ImageUtil.convertImageStreamToByte(inputStream, suffx.substring(1));
                 stream_1 = ImageUtil.convertImageStreamToByte(inputStream_1, suffx_1.substring(1));
                 stream_2 = ImageUtil.convertImageStreamToByte(inputStream_2, suffx_2.substring(1));
                 stream_3 = ImageUtil.convertImageStreamToByte(inputStream_3, suffx_3.substring(1));
             }
             //添加url
-            if (!"".equals(bannerUrl)) {
+            if (!"".equals(houseImage)) {
                 BASE64Decoder decoder = new BASE64Decoder();
                 byte[] bytes = decoder.decodeBuffer(stream);
                 byte[] bytes_1 = decoder.decodeBuffer(stream_1);
@@ -114,9 +113,9 @@ public class PublishGoods {
             }
             //stream =IMAGEURL+IMAGELOCALHOST.substring(2,IMAGELOCALHOST.lastIndexOf("\\")).replace("\\", "/")+"/";
             //stream =  IMAGEURL + "resource/upload/image/";
-            stream = IMAGEURL+"upload/";
+            stream ="upload/";
             UserEntity user = (UserEntity) session.getAttribute("user");
-            int i = publishGoodsService.addGoods(flashSaleId, merchantDescribe, validEndDate, validBeginDate, currentPrice, originalPrice, amount, seckillTitle,goodsAddress,
+            int i = rentingService.saveRenting(flashSaleId, houseName, houseSize, housePrice,houseAddress,contactsName, phone, remark,
                     stream + fileNameNew, stream + fileNameNew_1, stream + fileNameNew_2, stream + fileNameNew_3, user.getId());
         if(1 == i){
             boolean b = addUserAccount.addAccount(user.getId(), 1000,"发布商品",GlobalConstant.SILVERBEAN);

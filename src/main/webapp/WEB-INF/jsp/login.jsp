@@ -274,10 +274,11 @@
                         <div class="group-input">
                             <span class="express-login">快速登录：</span>
                              <span id="qqLoginBtn"></span>
-                             <a style="display:none" target="_blank" class="faster-login-btn qq" href="https://graph.qq.com/oauth2.0/authorize?response_type=token&client_id=101329432&redirect_uri=https://www.juxiangyou.com/login/quick&scope=get_user_info&state=QbKU9Mibwwm">
-                             <a target="_blank" data-point="1B1007" class="faster-login-btn qq" href="https://graph.qq.com/oauth2.0/authorize?response_type=token&client_id=101329432&redirect_uri=http://www.juxiangyou.com/login/quick&scope=get_user_info&state=QbKU9Mibwwm">
+                             <%--<a style="display:none" target="_blank" class="faster-login-btn qq" href="https://graph.qq.com/oauth2.0/authorize?response_type=token&client_id=101329432&redirect_uri=https://www.juxiangyou.com/login/quick&scope=get_user_info&state=QbKU9Mibwwm">--%>
+                             <a target="_blank" data-point="1B1007" class="faster-login-btn qq" href="/user/wxLogin">
                                 <%--<img src="//img.juxiangyou.com/common/home/Connect_logo_7.png" alt="QQ登录" border="0">--%>
                              </a>
+                            <a href="javascript:void(0)" onclick="window.location='//qq.jd.com/new/wx/login.action'+window.location.search;return false;" clstag="pageclick|keycount|login_pc_201804112|4" class="pdl"><b class="weixin-icon"></b><span>微信</span></a>
                              <script type="text/javascript">
 
                                 function qqLoginHandle(){
@@ -339,7 +340,7 @@
     </div>
 </div>
 <script type="text/javascript">
-    window.onload = function() {
+   /* window.onload = function() {
         document.onkeydown = function() {
             var e = window.event || arguments[0];
             //屏蔽F12
@@ -357,7 +358,7 @@
         document.oncontextmenu = function() {
             return false;
         }
-    }
+    }*/
 </script>
 </body>
 <script type="text/javascript">
