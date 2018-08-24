@@ -14,6 +14,7 @@ import com.force4us.exception.SeckillCloseException;
 import com.force4us.service.SeckillService;
 import com.force4us.service.UserAddressService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -36,6 +37,8 @@ public class SeckillController {
 
     @Autowired
     private UserAddressService userAddressService;
+    @Value("${img_host}")
+    String IMAGEURL;
 
     @RequestMapping(value = "/detail",method = RequestMethod.GET)
     public String detail(@RequestParam("seckillId") Long seckillId, Model model, HttpServletResponse response,HttpServletRequest request,HttpSession session){
@@ -69,6 +72,14 @@ public class SeckillController {
         if(seckillEntity == null){
             return "forward:/error";
         }
+        String imgUrl = seckillEntity.getImgUrl();
+        String bigOneImgUrl = seckillEntity.getBigOneImgUrl();
+        String bigTwoImgUrl = seckillEntity.getBigTwoImgUrl();
+        String bigThreeImgUrl = seckillEntity.getBigThreeImgUrl();
+        seckillEntity.setImgUrl(IMAGEURL + imgUrl);
+        seckillEntity.setBigOneImgUrl(IMAGEURL+bigOneImgUrl);
+        seckillEntity.setBigTwoImgUrl(IMAGEURL+bigTwoImgUrl);
+        seckillEntity.setBigThreeImgUrl(IMAGEURL+bigThreeImgUrl);
         model.addAttribute("seckill", seckillEntity);
         long endTime = seckillEntity.getEndTime().getTime();
         long currentTime = System.currentTimeMillis();

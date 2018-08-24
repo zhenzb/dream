@@ -63,7 +63,7 @@ public class indexController {
     @Value("${img_host}")
     String IMAGEURL;
 
-    @RequestMapping(value = "",method= RequestMethod.GET)
+    @RequestMapping(value="/goods")
     public String list(Model model, HttpSession session,HttpServletResponse response) {
         List<MessageEntity> messageAll;
         List list1;
@@ -259,7 +259,8 @@ public class indexController {
         modelAndView.setViewName("publishMessage");
         return modelAndView;
     }
-    @RequestMapping(value="/showRenting")
+
+    @RequestMapping(value = "",method= RequestMethod.GET)
     public ModelAndView showRenting(ModelAndView modelAndView){
         List<RentingEntity> list1 = new ArrayList<RentingEntity>();
             List list = rentingService.findList(0);

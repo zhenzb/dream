@@ -365,14 +365,14 @@
                     <img src="/resource/img/logo-new.png" alt="">
                 </a>
                 <div class="right-menu">
-                    <a href="/" data-point="1A1001" data-nav="home" class="child-menu">首页</a>
+                    <a href="/" data-point="1A1001" data-nav="home" class="child-menu" style="color: #fff;background-color: #31c37c;">租房专区</a>
 
-                    <a href="/recruit" data-point="1A1002" data-nav="newborn" class="child-menu" style="color: #fff;background-color: #31c37c;">招聘市场</a>
+                    <a href="/recruit" data-point="1A1002" data-nav="newborn" class="child-menu" >招聘市场</a>
 
                    <%-- <a href="/games" data-point="1A1004" data-nav="games" class="child-menu">
                         试玩体验<i class="top-pic">棋牌<s class="jt"></s></i>
                     </a>--%>
-                    <a href="/renting" data-point="1A1005" data-nav="finance" class="child-menu">租房专区</a>
+                    <a href="/goods" data-point="1A1005" data-nav="finance" class="child-menu" >二手物品</a>
 
                      <a onclick="{alert('该功能改造升级中，敬请期待...')}" href="" data-point="1A1006" data-nav="welfare" class="child-menu">
                          反馈信息

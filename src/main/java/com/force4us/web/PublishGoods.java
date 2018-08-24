@@ -114,7 +114,7 @@ public class PublishGoods {
             }
             //stream =IMAGEURL+IMAGELOCALHOST.substring(2,IMAGELOCALHOST.lastIndexOf("\\")).replace("\\", "/")+"/";
             //stream =  IMAGEURL + "resource/upload/image/";
-            stream = IMAGEURL+"upload/";
+            stream = "upload/";
             UserEntity user = (UserEntity) session.getAttribute("user");
             int i = publishGoodsService.addGoods(flashSaleId, merchantDescribe, validEndDate, validBeginDate, currentPrice, originalPrice, amount, seckillTitle,goodsAddress,
                     stream + fileNameNew, stream + fileNameNew_1, stream + fileNameNew_2, stream + fileNameNew_3, user.getId());
